@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution42{
+- ArrayList<String> info
+- ArrayList<String> firstName
+- ArrayList<String> lastName
+- ArrayList<String> salary
++ main(String[])
++ setInfo()
++ setData()
++ display()
+}
+@enduml
