@@ -1,0 +1,8 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution41{
++ readnames (void)
++ organizeName(List<String>)
+}
+@enduml
