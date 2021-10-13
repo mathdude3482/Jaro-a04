@@ -9,6 +9,6 @@ class Solution42{
 + main(String[])
 + setInfo()
 + setData()
-+ display()
+- display()
 }
 @enduml
