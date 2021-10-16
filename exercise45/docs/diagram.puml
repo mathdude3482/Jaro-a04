@@ -1,0 +1,6 @@
+@startuml
+class Solution45{
++ void main (String[] args)
++ void modifyFile (Scanner FilePath, String oldString, String newString)
+}
+@enduml
