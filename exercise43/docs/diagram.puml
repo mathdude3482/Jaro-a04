@@ -1,0 +1,17 @@
+@startuml
+class Solution43{
+- setName (String)
+- setAuthorName (String)
+- setDataPath (String)
+}
+class Create{
++ createWebsiteName(String)
++ createHTMLWebsite(String)
++ createJSWebsite(String)
++ createCSSWebsite(String)
++ createFolder(void)
++ createFile(void)
++ writeHTMLinput(void)
+}
+Solution43 -- Create
+@enduml
