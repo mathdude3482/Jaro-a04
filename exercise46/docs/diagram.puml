@@ -1,0 +1,9 @@
+@startuml
+class Solution46{
++ main:void
++ findWord: void
+- findFrequency: void
+- sort: void
+- print: void
+}
+@enduml
