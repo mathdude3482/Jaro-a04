@@ -9,6 +9,7 @@ class Create{
 + createHTMLWebsite(String)
 + createJSWebsite(String)
 + createCSSWebsite(String)
++ createHTML (String)
 + createFolder(void)
 + createFile(void)
 + writeHTMLinput(void)
