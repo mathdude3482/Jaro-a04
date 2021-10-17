@@ -1,0 +1,9 @@
+@startuml
+class Solution44{
+    -name (String)
+    -price (double)
+    -quantity (int)
+    +main()
+    +isProduct(boolean)
+    }
+@enduml
