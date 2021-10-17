@@ -1,9 +1,9 @@
 @startuml
 class Solution44{
-    -name (String)
-    -price (double)
-    -quantity (int)
-    +main()
-    +isProduct(boolean)
+    -static name (String)
+    -static price (double)
+    -static quantity (int)
+    +static main()
+    +static isProduct: (boolean)
     }
 @enduml
