@@ -8,7 +8,6 @@ import java.util.Scanner;
  *  Copyright 2021 James Jaro
  */
 //Create a program that generates a website skeleton with the following specifications:
-//
 //    Prompt for the name of the site.
 //    Prompt for the author of the site.
 //    Ask if the user wants a folder for JavaScript files.
