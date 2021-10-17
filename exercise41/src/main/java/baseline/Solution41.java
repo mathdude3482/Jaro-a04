@@ -1,6 +1,8 @@
 package baseline;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,20 +14,7 @@ import java.util.Scanner;
 //and sorts the list alphabetically.
 //Don't hard-code the number of names.
 public class Solution41 {
-    public void readnames(Scanner fileName, List<String> names){
-        //read in the names from the file.
-        while(fileName.hasNext()){
-            //add the current line to the list of names.
-            names.add(fileName.nextLine());
-        }
-    }
-    public List <String> organizeName(List <String> names){
-        //use collections sort to sort names by the last name.
-        names.sort(String.CASE_INSENSITIVE_ORDER);
-        //return the organized list.
-        return names;
-    }
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         Solution41 app = new Solution41();
         //take in a file called exercise41_input and read it.
         Scanner fileName = null;
@@ -39,14 +28,33 @@ public class Solution41 {
         List<String> names = new ArrayList<>();
         //ensure the fileName is not empty.
         assert fileName != null;
+        //read in the names.
         app.readnames(fileName, names);
-        System.out.println("Total of " + names.size() + " names");
-        System.out.println("-----------------");
-       List <String> revisedNames = app.organizeName(names);
-        for (String x: revisedNames){
-            System.out.println(x);
+        //use a try-catch block to write the output file.
+        try(FileWriter output = new FileWriter("data/exercise41_output.txt")){
+            output.write("Total of " + names.size() + " names");
+            output.write("\n" + "-----------------");
+            List <String> revisedNames = app.organizeName(names);
+            for (String x: revisedNames){
+                output.write("\n" + x);
+            }
+            }catch (IOException e){
+            e.printStackTrace();
         }
         //close the file.
         fileName.close();
+    }
+    public void readnames(Scanner fileName, List<String> names){
+        //read in the names from the file.
+        while(fileName.hasNext()){
+            //add the current line to the list of names.
+            names.add(fileName.nextLine());
+        }
+    }
+    public List <String> organizeName(List <String> names){
+        //use collections sort to sort names by the last name.
+        names.sort(String.CASE_INSENSITIVE_ORDER);
+        //return the organized list.
+        return names;
     }
 }
