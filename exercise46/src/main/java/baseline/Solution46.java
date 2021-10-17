@@ -16,10 +16,10 @@ import java.util.Scanner;
 // construct a histogram displaying the words and the frequency,
 // and display the histogram to the screen.
 public class Solution46 {
-    private static List<String> word = new ArrayList<>();
-    private static List<String> frequentword= new ArrayList<>();
-    private static List<Integer> frequencyvalue= new ArrayList<>();
-    private static List<String> stringFrequency = new ArrayList<>();
+    static List<String> word = new ArrayList<>();
+    static List<String> frequentword= new ArrayList<>();
+    static List<Integer> frequencyvalue= new ArrayList<>();
+    static List<String> stringFrequency = new ArrayList<>();
     public static void main(String[] args) throws FileNotFoundException {
         //create a method called findWord, which will call other helper methods to
         //count the frequency of words and print out the result as a histogram.
@@ -32,22 +32,22 @@ public class Solution46 {
         //declare a File object called filePath that refers to the path of the input file.
         File filePath = new File("data/exercise46_input.txt");
         //create a new Scanner that reads in the input file.
-        Scanner myScanner = new Scanner(filePath);
-        //using a while loop, read the file. Add any words found into a list called word.
-        while(myScanner.hasNext())
-        {
-            word.add(myScanner.next());
-        }
-        //using a for loop, add the elements of word into a list called frequentWord.
-        for (int x = 1; x < word.size(); x++){
-            //if the frequent word list does not contain anything from the list of words,
-            //then add it to the frequent word list.
-            if(!(frequentword.contains(word.get(x)))){
-                frequentword.add(word.get(x));
+        try (Scanner myScanner = new Scanner(filePath)) {
+            //using a while loop, read the file. Add any words found into a list called word.
+            while (myScanner.hasNext()) {
+                word.add(myScanner.next());
             }
+            //using a for loop, add the elements of word into a list called frequentWord.
+            for (int x = 1; x < word.size(); x++) {
+                //if the frequent word list does not contain anything from the list of words,
+                //then add it to the frequent word list.(
+                if (!(frequentword.contains(word.get(x)))) {
+                    frequentword.add(word.get(x));
+                }
+            }
+            //call a method called findFrequency to find out how many times each word pops up.
+            findFrequency();
         }
-        //call a method called findFrequency to find out how many times each word pops up.
-        findFrequency();
     }
     private void findFrequency(){
         //take in no parameters.
@@ -81,15 +81,6 @@ public class Solution46 {
         //sort the array by greatest to least.
         Collections.sort(frequencyvalue, Collections.reverseOrder());
     }
-    private int findBiggestWord(){
-        //this function will calculate the length of the largest word.
-        int maxLength = frequentword.get(0).length();
-        for (int i = 1; i < frequentword.size(); i++){
-            maxLength = (frequentword.get(i).length() > maxLength) ?
-                    frequentword.get(i).length() : maxLength;
-        }
-        return maxLength;
-    }
     private void getIndex(){
         int index = 0;
         List<Integer> temp = new ArrayList<>();
@@ -104,11 +95,7 @@ public class Solution46 {
     }
     private void display(int index){
         //print out the result as a histogram.
-        int largestWord = findBiggestWord();
-        System.out.printf("%s:", frequentword.get(index));
-        int currentLength = (largestWord - frequentword.get(index).length()) + 1;
-        String spaceformat = String.format("%" + currentLength + "s", " ");
-        System.out.format(spaceformat);
+        System.out.printf("%s: ", frequentword.get(index));
         int value = Integer.parseInt(stringFrequency.get(index));
         for (int j = 0; j < value; j++){
             System.out.print("*");

@@ -1,10 +1,13 @@
 @startuml
 class Solution46{
++List<String> word
++List<String> frequentword
++List<Integer> frequencyvalue
++List<String> stringFrequency
 + main:void
 + findWord: void
 - findFrequency: void
 - sort: void
-- findBiggestWord: int
 - getIndex: void
 - display: void
 }
