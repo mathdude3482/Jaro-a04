@@ -8,7 +8,7 @@ class Solution42{
 - ArrayList<String> salary
 + main(String[])
 + setInfo()
-+ setData()
+- setData()
 - display()
 }
 @enduml

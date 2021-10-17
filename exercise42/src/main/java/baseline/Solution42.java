@@ -42,7 +42,7 @@ public class Solution42 {
             info.add(nameofFile.nextLine());
         }
     }
-    public void setData(){
+    private void setData(){
         //using a for each loop, split the arrayList by commas and store their respective values into
         //seperate array lists.
         for (String data: info){
