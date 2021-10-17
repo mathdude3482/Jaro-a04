@@ -4,6 +4,8 @@ class Solution46{
 + findWord: void
 - findFrequency: void
 - sort: void
-- print: void
+- findBiggestWord: int
+- getIndex: void
+- display: void
 }
 @enduml
