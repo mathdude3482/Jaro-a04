@@ -1,5 +1,4 @@
 package baseline;
-
 import java.io.*;
 
 /*
@@ -21,22 +20,21 @@ public class Solution45 {
         //and the new string that will replace the old string.
         File file = new File(filePath);
         StringBuilder oldVersion = new StringBuilder();
-        BufferedReader reader;
-        FileWriter writer = null;
         //go through the file and read each line.
-        reader = new BufferedReader(new FileReader(file));
-        String line = reader.readLine();
-        //for each line, if there is an instance of oldString, replace it with newString.
-        while (line != null){
-            oldVersion.append(line).append(System.lineSeparator());
-            line = reader.readLine();
-            String newVersion = oldVersion.toString().replaceAll(oldString, newString);
-            writer = new FileWriter("data/exercise45_output.txt");
-            writer.write(newVersion);
-        }
-        reader.close();
-        if(writer != null)
-            writer.close();
+       try( BufferedReader reader = new BufferedReader(new FileReader(file))){
+           String line = reader.readLine();
+           //for each line, if there is an instance of oldString, replace it with newString.
+           while (line != null){
+               oldVersion.append(line).append(System.lineSeparator());
+               line = reader.readLine();
+               String newVersion = oldVersion.toString().replaceAll(oldString, newString);
+               try(FileWriter writer = new FileWriter("data/exercise45_output.txt")){
+                   writer.write(newVersion);
+               }catch(IOException e){
+                   e.printStackTrace();
+               }
+           }
+       }
         //write the new output to a new file.
     }
 }
