@@ -1,8 +1,8 @@
 @startuml
 class Solution44{
-    -static name (String)
-    -static price (double)
-    -static quantity (int)
+    +static name (String)
+    +static price (double)
+    +static quantity (int)
     +static main()
     +static isProduct: (boolean)
     }
